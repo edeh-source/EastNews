@@ -191,8 +191,18 @@ AUTH_USER_MODEL = 'users.User'
 
 # This setting informs Django of the URI path from which your static files will be served to users
 # Here, they well be accessible at your-domain.onrender.com/static/... or yourcustomdomain.com/static/...
-STATIC_URL = 'static/'
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_URL = '/static/'
+
+# This setting will be used in production
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# This setting will be used during development
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+# Configure static file storage for production
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # This production code might break development mode, so we check whether we're in DEBUG mode
 if not DEBUG:
