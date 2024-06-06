@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG')
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -134,13 +134,13 @@ WSGI_APPLICATION = 'newspaper.wsgi.application'
     
 DATABASES = {
     'default': dj_database_url.config(
-        # Replace this value with your local database's connection string.
+         #Replace this value with your local database's connection string.
         default='postgresql://postgres:1232478847@localhost:5432/emma',
         conn_max_age=600
     )
 }    
 
-#DATABASES["default"] = dj_database_url.parse(os.environ.get("DATABASE_URL"))
+DATABASES["default"] = dj_database_url.parse("postgres://santa_q0ru_user:o6jWSNBWcvs1Rk5wsLmzLltZgBnKK6u0@dpg-cpgvf4m3e1ms73ao6300-a.oregon-postgres.render.com/santa_q0ru")
 
 
 
